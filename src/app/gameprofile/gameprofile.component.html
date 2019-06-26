@@ -1,0 +1,31 @@
+<div class="panel-body" *ngFor="let game of games">
+    <div class="col-md-8 no-padding">
+        <div class="p-r-30">
+            <div class="borda">
+                <h3>{{game.name}}</h3>
+            </div><img src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{game.cover.image_id}}.jpg"><br>
+                <div *ngIf="game.involved_companies != NULL"><br><strong>Desenvolvedora(s):</strong> <div *ngFor="let ic of game.involved_companies">- {{ic.company.name}} </div></div>
+                <div *ngIf="game.first_release_date != NULL"> <br><strong>Lançamento:</strong> {{game.first_release_date * 1000| date:'mediumDate'}}</div>
+                <div *ngIf="game.game_modes != NULL"> <br><strong>Modos de Jogo:</strong> <div *ngFor="let gms of game.game_modes">- {{gms.name}} </div></div>
+                <div *ngIf="game.player_perspectives != NULL"><br><strong>Perspectiva de jogo:</strong> <div *ngFor="let perspec of game.player_perspectives">- {{perspec.name}} </div></div>
+                <div *ngIf="game.platforms != NULL"><br><strong>Plataformas:</strong> <div *ngFor="let plat of game.platforms">- {{plat.name}} </div></div>
+                <div *ngIf="game.genres != NULL"><br><strong>Gêneros:</strong> <div *ngFor="let genre of game.genres">- {{genre.name}} </div></div>
+                <div *ngIf="game.summary != NULL"><br><strong>Sumário:</strong> {{game.summary}}</div>
+                <div *ngIf="game.storyline != NULL"><br><strong>História:</strong> {{game.storyline}}</div>
+                <div *ngIf="game.game_engines != NULL"><br><strong>Engine(s):</strong> <div *ngFor="let egni of game.game_engines">- {{egni.name}} </div></div>
+                <br>
+
+        </div>
+    </div>
+    <div class="col-md-4">
+            <div class="panel-body">
+
+                <ul id="tabs-nvd3" class="nav nav-tabs nav-tabs-linetriangle">
+
+                    <li class="" *ngIf="authService.isLogged()">
+                            <span><input title="search" value="Adicionar aos meus Jogos" type="submit" (click)="add()" class="buttonNovo"></span>
+                    </li>
+                </ul>
+            </div>
+    </div>
+</div>

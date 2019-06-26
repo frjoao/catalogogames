@@ -1,0 +1,10 @@
+<div class="row2">
+  <div class="borda">Minha Lista</div>
+</div>
+  <ul class="products">
+      <li class="product" *ngFor="let game of myList"> <a [routerLink]="['/games', game.gamesAdicionados.slug]">
+              <div class=""> <img
+                      src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{game.gamesAdicionados.cover.image_id}}.jpg"
+                      title="{{game.gamesAdicionados.name}}"> </div>
+          </a> </li>
+  </ul>

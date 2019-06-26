@@ -1,0 +1,20 @@
+<header class="bp-header cf">
+  <div class="dummy-logo">
+    <div class="dummy-icon foodicon foodicon--basket"></div>
+    <h2 class="dummy-heading">Catálogo De Jogos</h2>
+  </div>
+  <div class="bp-header__main">
+    <span class="bp-header__present">LTP4 <span class="bp-tooltip bp-icon bp-icon--about" data-content="Trabalho de LTP4 feito em angular, usando as ferramentas do typescript e um template HTML básico, para o uso dos componentes usamos diversos templates distintos."></span></span>
+    <h1 class="bp-header__title">{{authService.getCurrentUser().name}}</h1>
+    <nav class="bp-nav">
+      <a class="bp-nav__item bp-icon bp-icon--archive" [routerLink]="['/dashboard']" data-info="Voltar para a tela inicial"><span>Voltar para tela inicial</span></a>
+      <!--a class="bp-nav__item bp-icon bp-icon--next" href="" data-info="next Blueprint"><span>Next Blueprint</span></a-->
+      <a class="bp-nav__item bp-icon bp-icon--drop" [routerLink]="['/userList']" data-info="Minha lista de jogos" *ngIf="authService.isLogged()"><span></span></a>
+      <a class="bp-nav__item bp-icon bp-icon--prev" data-info="Logout" *ngIf="authService.isLogged()" (click)="authService.logout()"><span>Logout</span></a>
+    </nav>
+  </div>
+</header>
+
+prev
+drop
+archive

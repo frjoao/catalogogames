@@ -1,0 +1,23 @@
+<nav id="ml-menu" class="menu">
+    <nav class="menu__breadcrumbs">
+        <a [routerLink]="['/dashboard']" (click)="selectionMenu(menu,'')">HOME</a>
+        <a>{{menuSelectedName}}</a>
+    </nav>
+    <div class="menu__wrap">
+        <ul data-menu="main" class="menu__level menu__level--current">
+            <li routerLinkActive="active" *ngFor="let item of menuSelected" class="menu__item"
+                style="animation-delay: 60ms;">
+                <a [routerLink]="[item.href]" *ngIf="item.subMenu" class="menu__link" data-submenu="submenu-1"
+                    (click)="selectionMenu(item.subMenu,item.name)">{{item.name}}</a>
+                <a [routerLink]="[item.href]"
+                    *ngIf="!item.subMenu && item.logado == NULL && item.name != 'Logout'"
+                    class="menu__link" (click)="selectionMenu(item.subMenu,item.name)">{{item.name}}</a>
+                <a [routerLink]="[item.href]"
+                    *ngIf="!item.subMenu && authService.isLogged() == item.logado && item.name != 'Logout'"
+                    class="menu__link" (click)="selectionMenu(item.subMenu,item.name)">{{item.name}}</a>
+                <a [routerLink]="[item.href]" *ngIf="authService.isLogged() == item.logado && item.name == 'Logout'"
+                    class="menu__link" (click)="logout()">{{item.name}}</a>
+            </li>
+        </ul>
+    </div>
+</nav>

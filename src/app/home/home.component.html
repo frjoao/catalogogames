@@ -1,0 +1,180 @@
+
+
+<br>
+<div class="row">
+    <div class="col-md-3 col-sm-6 col-xs-12">
+      <div class="info-box">
+        <span class="info-box-icon bg-aqua"><i class="icon foodicon foodicon--banana"></i></span>
+
+        <div class="info-box-content">
+          <span class="info-box-text">Jogos Cadastrados</span>
+          <span class="info-box-number">{{qntdeJogos?.count}}</span>
+        </div>
+        <!-- /.info-box-content -->
+      </div>
+      <!-- /.info-box -->
+    </div>
+    <!-- /.col -->
+    <div class="col-md-3 col-sm-6 col-xs-12">
+      <div class="info-box">
+        <span class="info-box-icon bg-red"><i class="icon foodicon foodicon--lemon"></i></span>
+
+        <div class="info-box-content">
+          <span class="info-box-text">Jogo da semana</span>
+          <span class="info-box-number" *ngFor="let mp of maisPopular" >{{mp.name}}</span>
+        </div>
+        <!-- /.info-box-content -->
+      </div>
+      <!-- /.info-box -->
+    </div>
+    <!-- /.col -->
+
+    <!-- fix for small devices only -->
+    <div class="clearfix visible-sm-block"></div>
+
+    <div class="col-md-3 col-sm-6 col-xs-12">
+      <div class="info-box">
+        <span class="info-box-icon bg-green"><i class="icon foodicon foodicon--grape"></i></span>
+
+        <div class="info-box-content">
+          <span class="info-box-text">Ultimo Lançamento</span>
+          <span class="info-box-number" *ngFor="let mv of maisNovo">{{mv.name}} <br> <small>{{mv.first_release_date * 1000| date:'mediumDate'}}</small></span>
+        </div>
+        <!-- /.info-box-content -->
+      </div>
+      <!-- /.info-box -->
+    </div>
+    <!-- /.col -->
+    <div class="col-md-3 col-sm-6 col-xs-12">
+      <div class="info-box">
+        <span class="info-box-icon bg-yellow"><i class="icon foodicon foodicon--ekobag"></i></span>
+
+        <div class="info-box-content">
+          <span class="info-box-text">Usuários Cadastrados</span>
+          <span class="info-box-number">{{authService?.totalUsers}}</span>
+        </div>
+        <!-- /.info-box-content -->
+      </div>
+      <!-- /.info-box -->
+    </div>
+    <!-- /.col -->
+  </div>
+<br>
+
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="box">
+        <div class="box-header with-border">
+          <h3 class="box-title">Notícias</h3>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <div class="row">
+            <div class="col-md-8">
+                <!-- Sales Chart Canvas -->
+                <div *ngFor="let noticia of ultimaNoticia"> 
+                  
+              <p class="text-center">
+                  <strong>{{noticia.title}}</strong>
+                </p><br>
+                <img [src]="noticia.image" align="left" title="" style="height: 190; width: 300px; vertical-align: top; " >
+                  <div class="alinhamento">Autor : {{noticia.author}} <br><br> Sumário : {{noticia.summary}} <br><br> Públicada em : {{noticia.published_at * 1000| date:'mediumDate'}}
+                    <br><br><small>Para acessar a noticia <a [href]="noticia.website.url">clique aqui</a></small></div>
+              </div>
+              <!-- /.chart-responsive -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-4">
+              <p class="text-center">
+                <strong>Metas</strong>
+              </p>
+
+              <div class="progress-group">
+                <span class="progress-text">Empresas Cadastradas</span>
+                <span class="progress-number"><b>{{qntdeComp?.count}}</b>/40000</span>
+
+                <div class="progress sm">
+                  <div class="progress-bar progress-bar-aqua" style="width: 50%"></div>
+                </div>
+              </div>
+              <!-- /.progress-group -->
+              <div class="progress-group">
+                <span class="progress-text">Artes cadastradas</span>
+                <span class="progress-number"><b>{{qntdeArtes?.count}}</b>/10000</span>
+
+                <div class="progress sm">
+                  <div class="progress-bar progress-bar-red" style="width: 73%"></div>
+                </div>
+              </div>
+              <!-- /.progress-group -->
+              <div class="progress-group">
+                <span class="progress-text">Novas Engines</span>
+                <span class="progress-number"><b>{{qntdeEngines?.count}}</b>/1000</span>
+
+                <div class="progress sm">
+                  <div class="progress-bar progress-bar-green" style="width: 56%"></div>
+                </div>
+              </div>
+              <!-- /.progress-group -->
+              <div class="progress-group">
+                <span class="progress-text">Characters Cadastrados</span>
+                <span class="progress-number"><b>{{qntdeCharacters?.count}}</b>/20000</span>
+
+                <div class="progress sm">
+                  <div class="progress-bar progress-bar-yellow" style="width: 71%"></div>
+                </div>
+              </div>
+              <!-- /.progress-group -->
+            </div>
+            <!-- /.col -->
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- ./box-body -->
+        <div class="box-footer">
+          <div class="row">
+            <div class="col-sm-3 col-xs-6">
+              <div class="description-block border-right">
+                <span class="description-percentage text-green"><i class="fa fa-caret-up"></i> 17%</span>
+                <h5 class="description-header">$35,210.43</h5>
+                <span class="description-text">TOTAL REVENUE</span>
+              </div>
+              <!-- /.description-block -->
+            </div>
+            <!-- /.col -->
+            <div class="col-sm-3 col-xs-6">
+              <div class="description-block border-right">
+                <span class="description-percentage text-yellow"><i class="fa fa-caret-left"></i> 0%</span>
+                <h5 class="description-header">$10,390.90</h5>
+                <span class="description-text">TOTAL COST</span>
+              </div>
+              <!-- /.description-block -->
+            </div>
+            <!-- /.col -->
+            <div class="col-sm-3 col-xs-6">
+              <div class="description-block border-right">
+                <span class="description-percentage text-green"><i class="fa fa-caret-up"></i> 20%</span>
+                <h5 class="description-header">$24,813.53</h5>
+                <span class="description-text">TOTAL PROFIT</span>
+              </div>
+              <!-- /.description-block -->
+            </div>
+            <!-- /.col -->
+            <div class="col-sm-3 col-xs-6">
+              <div class="description-block">
+                <span class="description-percentage text-red"><i class="fa fa-caret-down"></i> 18%</span>
+                <h5 class="description-header">1200</h5>
+                <span class="description-text">GOAL COMPLETIONS</span>
+              </div>
+              <!-- /.description-block -->
+            </div>
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- /.box-footer -->
+      </div>
+      <!-- /.box -->
+    </div>
+    <!-- /.col -->
+  </div>

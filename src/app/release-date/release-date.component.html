@@ -1,0 +1,11 @@
+<div >
+    <div class="row2">
+      <div>
+    </div>
+    <ul class="products">
+      <li class="product" *ngFor="let game of games"> <a [routerLink]="['/games', game.slug]">
+          <div class=""> <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{game.cover.image_id}}.jpg"
+              title="{{game.name}} - {{game.first_release_date * 1000| date:'mediumDate'}}"> </div>
+        </a> </li>
+    </ul>
+  </div>

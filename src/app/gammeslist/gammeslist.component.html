@@ -1,0 +1,11 @@
+
+<div class="row2">
+    <div class="borda">Populares da semana</div>
+</div>
+    <ul class="products">
+        <li class="product" *ngFor="let game of games"> <a [routerLink]="['/games', game.slug]">
+                <div class=""> <img
+                        src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{game.cover.image_id}}.jpg"
+                        title="{{game.name}}"> </div>
+            </a> </li>
+    </ul>

@@ -1,0 +1,14 @@
+<div class="teste">
+  Digite o nome do jogo que deseja pesquisar : <br>
+
+      <input [(ngModel)]="q" (keyup)="pesquisar()" type="text" class="textbox" placeholder="Search">
+      <input title="search" value="Pesquisar" type="submit" class="button" (click)="pesquisar()">
+</div> <Br><br>
+
+<ul class="products">
+        <li class="product" *ngFor="let game of games"> <a [routerLink]="['/games', game.slug]">
+                <div class=""> <img
+                        src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{game.cover.image_id}}.jpg"
+                        title="{{game.name}}"> </div>
+            </a> </li>
+    </ul>

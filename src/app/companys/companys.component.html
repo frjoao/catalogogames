@@ -1,0 +1,16 @@
+<div *ngFor="let emp of comp">
+  <div class="row2">
+    <div>
+      <div class="borda"><strong>{{emp.name}} </strong><span>Fundada em :  {{emp.start_date * 1000| date:'mediumDate'}}</span></div>
+      <img src="https://images.igdb.com/igdb/image/upload/t_logo_med/{{emp.logo.image_id}}.png" title="{{emp.name}}"
+        class="borda" style="vertical-align:botton"> 
+    </div>
+    <span>{{emp.description}}</span>
+  </div>
+  <ul class="products">
+    <li class="product" *ngFor="let game of games"> <a [routerLink]="['/games', game.slug]">
+        <div class=""> <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{game.cover.image_id}}.jpg"
+            title="{{game.name}}"> </div>
+      </a> </li>
+  </ul>
+</div>

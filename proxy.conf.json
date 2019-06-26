@@ -1,0 +1,7 @@
+{
+    "/gammeslist": {
+        "target": "https://api-v3.igdb.com/games",
+        "secure": false,
+        "changeOrigin": true
+    }
+}
